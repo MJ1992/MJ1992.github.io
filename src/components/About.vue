@@ -63,7 +63,7 @@ export default {
   data() {
     return {
       title: "About Me",
-      content: `Hi, I am Manish Jangid.\nI am a graduate from IIT Delhi with B.Tech in Textile Technology.Just after college I joined Misys Financial Software Solution and worked there for two and a half years as Quality Engineer Technical.\nI was always interested in working as a Developer so I decided to learn web development on my own.I like both front and back end part of the development.I am looking for the opportunity to work in role of Full Stack Developer`,
+      content: `Hi, I am Manish Jangid.\nI am a graduate from Indian Institue of Technology (IIT) Delhi with B.Tech in Textile Technology.After college I joined Misys Financial Software Solution and worked there for two and a half years as Quality Engineer.\nI was always interested in working as a Developer so I decided to learn web development on my own.\nAll started with my interest in front end development I decided to learn from bunch of freely available resources to learn HTML, CSS, JS(ES5,ES6), AngularJS, VueJS and Canvas.Now I am a certified MEAN stack developer.I like building landing pages to complex full stack web apps from scratch.I enjoy both front and back end sides of the web development.\nRight Now I am looking for the opportunity to work in role of a Full Stack Developer.`,
       canvas: "",
       ctx: "",
       requestId :'',

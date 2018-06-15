@@ -7,7 +7,7 @@
         <div class="box3"></div>
         <div class="box4"></div>
             <v-layout row wrap align-center>
-                <v-flex xs12 sm12 md6 align-center class="text-sm-center mt-5" fill-height>
+                <v-flex xs12 sm12 md6 align-center class=" mt-5" fill-height>
                    <app-content :title='title' :content='content'></app-content>
                 </v-flex>
                 <v-flex xs12 sm12 md6 class="text-sm-center canvasBox " fill-height>
@@ -56,9 +56,7 @@ export default {
         "Nginx"
       ],
       title: "Skills",
-      content: "Hi! My name is Manish Jangid and I'm a self taught web developer based in the Bengaluru,India. I'm using FreeCodeCamp and a bunch of other freely available resources to learn HTML5, CSS3, JavaScript, Node, Angular and more."+
-
-"Main area of my expertise is front end development and everything related with this side of web.   HTML,CSS, JS (ES5,ES6), building small & medium Web Apps, Angular, animations and just coding layouts."
+      content: `Main area of my expertise is Full Stack development using MEAN stack ( Mongo, ExpressJS, AngualrJS, NodeJS ). \nI enjoy everything related to design and development of front end side of web.On Front end side I have experience in HTML,CSS, JS (ES5,ES6), building small & medium Web Apps, jQuery, AngularJS, VueJS, Canvas, Bootstrap , MaterializeCSS etc.\nOn Back End side I have experience in ExpressJS, MongoDB, NodeJS and SocketIO.\nWould you like to know more ?........\nContact Me at jangid.manish40@gmail.com`
     };
   },
 
@@ -199,7 +197,7 @@ export default {
     this.ctx = this.$refs.canvas.getContext("2d");
     this.init();
     this.animate();
-    this.content = this.content.split(" ");
+    this.content = this.content.split("\n");
   },
   beforeDestroy() {
     window.cancelAnimationFrame(this.requestId);
@@ -252,7 +250,7 @@ html {
 .box1 {
   position: absolute;
   top: 2.5%;
-  left: 2.5%;
+  left: 2%;
   border-top: 3px solid #414141;
   border-left: 3px solid #414141;
   z-index: 5;
@@ -265,7 +263,7 @@ html {
 .box2 {
   position: absolute;
   bottom: 2.5%;
-  left: 2.5%;
+  left: 2%;
   border-bottom: 3px solid #414141;
   border-left: 3px solid #414141;
   z-index: 5;
@@ -278,7 +276,7 @@ html {
 .box3 {
   position: absolute;
   top: 2.5%;
-  right: 2.5%;
+  right: 2%;
   border-top: 3px solid #414141;
   border-right: 3px solid #414141;
   z-index: 5;
@@ -291,7 +289,7 @@ html {
 .box4 {
   position: absolute;
   bottom: 2.5%;
-  right: 2.5%;
+  right: 2%;
   border-bottom: 3px solid #414141;
   border-right: 3px solid #414141;
   z-index: 5;
