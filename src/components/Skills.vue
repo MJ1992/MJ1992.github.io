@@ -8,7 +8,7 @@
         <div class="box4"></div>
             <v-layout row wrap align-center>
                 <v-flex xs12 sm12 md6 align-center class=" mt-5" fill-height>
-                   <app-content :title='title' :content='content'></app-content>
+                   <!-- <app-content :title='title' :content='content'></app-content> -->
                 </v-flex>
                 <v-flex xs12 sm12 md6 class="text-sm-center canvasBox " fill-height>
                     <canvas ref='canvas' class="sphere" width='800' height="600" ></canvas>
@@ -20,88 +20,88 @@
 </template>
 
 <script>
-import Content from "./Content";
+import Content from './Content'
 export default {
-  data() {
+  data () {
     return {
-      canvas: "",
-      ctx: "",
-      requestId: "",
+      canvas: '',
+      ctx: '',
+      requestId: '',
       particleArray: [],
-      colorArray: ["#2ABB9B", "#2F3661", "#FF5A43", "#E0A86B", "#4F67FF"],
+      colorArray: ['#2ABB9B', '#2F3661', '#FF5A43', '#E0A86B', '#4F67FF'],
       Skills: [
-        "HTML5",
-        "CSS3",
-        "JavaScript",
-        "AJAX",
-        "REST",
-        "VueJS",
-        "Gulp",
-        "Canvas",
-        "Webpack",
-        "SocketIO",
-        "AngularJS",
-        "Git",
-        "NodeJS",
-        "BootStrap",
-        "JQuery",
-        "MongoDB",
-        "ExpressJS",
-        "EJS",
-        "MDBootstrap",
-        "NPM",
-        "Vuetify",
-        "Materialize",
+        'HTML5',
+        'CSS3',
+        'JavaScript',
+        'AJAX',
+        'REST',
+        'VueJS',
+        'Gulp',
+        'Canvas',
+        'Webpack',
+        'SocketIO',
+        'AngularJS',
+        'Git',
+        'NodeJS',
+        'BootStrap',
+        'JQuery',
+        'MongoDB',
+        'ExpressJS',
+        'EJS',
+        'MDBootstrap',
+        'NPM',
+        'Vuetify',
+        'Materialize',
         'AWS',
-        "Nginx"
+        'Nginx'
       ],
-      title: "Skills",
-      content: `Main area of my expertise is Full Stack development using MEAN stack ( Mongo, ExpressJS, AngualrJS, NodeJS ). \nI enjoy everything related to design and development of front end side of web.On Front end side I have experience in HTML,CSS, JS (ES5,ES6), building small & medium Web Apps, jQuery, AngularJS, VueJS, Canvas, Bootstrap , MaterializeCSS etc.\nOn Back End side I have experience in ExpressJS, MongoDB, NodeJS and SocketIO.\nWould you like to know more ?........\nContact Me at jangid.manish40@gmail.com`
-    };
+      title: 'Skills',
+      content: ''
+    }
   },
 
   components: {
     appContent: Content
   },
   methods: {
-    Particle(x, y, radius, radians, distX, skill) {
+    Particle (x, y, radius, radians, distX, skill) {
       // let that = this
-      let particle = {};
-      particle.x = x;
-      particle.y = y;
-      particle.dx = 0.05;
-      particle.distanceX = distX;
-      particle.distanceY = 25;
-      particle.dy = 0.05;
-      particle.radius = radius;
-      particle.radians = radians;
-      particle.color = "#08FDD8";
-      particle.skill = skill; //this.Skills[Math.floor(Math.random() * this.Skills.length)]
+      let particle = {}
+      particle.x = x
+      particle.y = y
+      particle.dx = 0.05
+      particle.distanceX = distX
+      particle.distanceY = 25
+      particle.dy = 0.05
+      particle.radius = radius
+      particle.radians = radians
+      particle.color = '#08FDD8'
+      particle.skill = skill // this.Skills[Math.floor(Math.random() * this.Skills.length)]
 
       particle.draw = () => {
-        particle.sizeFactor = 0.75 + (Math.sin(particle.radians) + 1) / 2;
-        this.ctx.beginPath();
+        particle.sizeFactor = 0.75 + (Math.sin(particle.radians) + 1) / 2
+        this.ctx.beginPath()
         this.ctx.font =
-          particle.radius * particle.sizeFactor * 1.2 + "px Aerial";
-        this.ctx.fillText(particle.skill, particle.x, particle.y);
-        this.ctx.strokeStyle = particle.color;
+          particle.radius * particle.sizeFactor * 1.2 + 'px Aerial'
+        this.ctx.fillText(particle.skill, particle.x, particle.y)
+        this.ctx.strokeStyle = particle.color
         this.ctx.fillStyle =
-          "rgba(8, 253, 216," + (Math.sin(particle.radians) + 1) / 2 + ")";
+          'rgba(8, 253, 216,' + (Math.sin(particle.radians) + 1) / 2 + ')'
 
-        this.ctx.fill();
-      };
+        this.ctx.fill()
+      }
       particle.update = () => {
-        particle.radians += 0.02;
-        particle.x = x + Math.cos(particle.radians) * particle.distanceX * 1.35;
-        particle.y = y - Math.sin(particle.radians) * particle.distanceY;
+        particle.radians += 0.02
+        particle.x = x + Math.cos(particle.radians) * particle.distanceX * 1.35
+        particle.y = y - Math.sin(particle.radians) * particle.distanceY
 
-        particle.draw();
-      };
+        particle.draw()
+      }
 
-      return particle;
+      return particle
     },
-    init() {
-      this.particleArray = [];
+    init () {
+      this.particleArray = []
 
       for (let i = 0; i < 4; i++) {
         this.particleArray.push(
@@ -113,7 +113,7 @@ export default {
             70,
             this.Skills[i + 20]
           )
-        );
+        )
       }
 
       for (let j = 0; j < 5; j++) {
@@ -126,7 +126,7 @@ export default {
             130,
             this.Skills[12 + j]
           )
-        );
+        )
       }
       for (let a = 0; a < 6; a++) {
         this.particleArray.push(
@@ -138,7 +138,7 @@ export default {
             160,
             this.Skills[6 + a]
           )
-        );
+        )
       }
 
       for (let c = 0; c < 6; c++) {
@@ -151,7 +151,7 @@ export default {
             160,
             this.Skills[c]
           )
-        );
+        )
       }
       for (let m = 0; m < 5; m++) {
         this.particleArray.push(
@@ -163,7 +163,7 @@ export default {
             130,
             this.Skills[17 + m]
           )
-        );
+        )
       }
 
       for (let k = 0; k < 4; k++) {
@@ -176,33 +176,33 @@ export default {
             80,
             this.Skills[k]
           )
-        );
+        )
       }
     },
-    animate() {
-      this.requestId = requestAnimationFrame(this.animate);
-      //requestAnimationFrame(this.animate)
+    animate () {
+      this.requestId = requestAnimationFrame(this.animate)
+      // requestAnimationFrame(this.animate)
 
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
-      this.particleArray.forEach(function(particle) {
-        particle.draw();
-        particle.update();
-      });
+      this.particleArray.forEach(function (particle) {
+        particle.draw()
+        particle.update()
+      })
     }
   },
 
-  mounted() {
-    this.canvas = this.$refs.canvas;
-    this.ctx = this.$refs.canvas.getContext("2d");
-    this.init();
-    this.animate();
-    this.content = this.content.split("\n");
+  mounted () {
+    this.canvas = this.$refs.canvas
+    this.ctx = this.$refs.canvas.getContext('2d')
+    this.init()
+    this.animate()
+    this.content = this.content.split('\n')
   },
-  beforeDestroy() {
-    window.cancelAnimationFrame(this.requestId);
+  beforeDestroy () {
+    window.cancelAnimationFrame(this.requestId)
   }
-};
+}
 </script>
 
 <style scoped>
@@ -225,7 +225,7 @@ export default {
   height: 100vh;
 }
 .contentSide{
-  overflow-y: scroll; 
+  overflow-y: scroll;
 }
 
 html {
@@ -240,7 +240,6 @@ html {
 ::-webkit-scrollbar-thumb {
     background: #FF0000;
 }
-
 
 .box1  {
   width: 10%;
@@ -295,7 +294,6 @@ html {
   z-index: 5;
 }
 @media only screen and (max-width: 968px) {
-  
 
 .box1 {
   position: absolute;
@@ -306,7 +304,6 @@ html {
   z-index: 5;
 }
 
-
 .box2 {
   position: absolute;
   bottom: 2.5%;
@@ -316,7 +313,6 @@ html {
   z-index: 5;
 }
 
-
 .box3 {
   position: absolute;
   top: 10%;
@@ -325,7 +321,6 @@ html {
   border-right: 3px solid #414141;
   z-index: 5;
 }
-
 
 .box4 {
   position: absolute;
